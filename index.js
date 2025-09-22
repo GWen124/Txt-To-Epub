@@ -169,6 +169,7 @@ function initEventListeners() {
     [elements.txtFileDisplay, elements.coverFileDisplay].forEach((display, index) => {
         const input = index === 0 ? elements.txtFileInput : elements.coverFileInput;
         
+        display.addEventListener('dragenter', fileHandlers.handleDragOver);
         display.addEventListener('dragover', fileHandlers.handleDragOver);
         display.addEventListener('dragleave', fileHandlers.handleDragLeave);
         display.addEventListener('drop', (e) => fileHandlers.handleDrop(e, input));
@@ -621,4 +622,20 @@ function getImageDimensionsFromFile(file) {
 // 初始化应用
 document.addEventListener('DOMContentLoaded', () => {
     initEventListeners();
+    // 全站限制右键与选中，但允许输入区域
+    const isEditable = (el) => {
+        return el && (el.closest('input, textarea, [contenteditable="true"]'));
+    };
+
+    document.addEventListener('contextmenu', (e) => {
+        if (!isEditable(e.target)) {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener('selectstart', (e) => {
+        if (!isEditable(e.target)) {
+            e.preventDefault();
+        }
+    });
 });
