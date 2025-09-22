@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./jszip.min.js"></script>
+  <script src="./epub-generator.js"></script>
   <title>TXT转EPUB转换器</title>
   <style>
     * {
@@ -495,6 +495,43 @@
       margin: 0;
     }
 
+    .author-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .author-link:hover {
+      color: #764ba2;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .author-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .author-link:hover::after {
+      width: 100%;
+    }
+
+    .author-link:focus {
+      outline: 2px solid rgba(102, 126, 234, 0.3);
+      outline-offset: 2px;
+    }
+
     .help-text {
       font-size: 0.9rem;
       color: #666;
@@ -646,7 +683,7 @@
     </div>
 
     <div class="footer">
-      <p>© 2024 TXT转EPUB转换器 | 版本 2.0 | 完全免费使用</p>
+      <p>© 2025 TXT转EPUB转换器 | By <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="author-link">Wen</a></p>
     </div>
   </div>
 
