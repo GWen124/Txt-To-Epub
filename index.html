@@ -493,14 +493,19 @@
       text-align: center;
     }
 
-    .footer p {
+    .footer-line {
       color: #999;
       font-size: 0.9rem;
-      margin: 0;
+      margin: 0 auto;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      font-feature-settings: "liga", "kern";
+      text-align: center;
+      display: block;
     }
 
-    .author-link {
-      color: #667eea;
+    .link-green {
+      color: #999;
       text-decoration: none;
       font-weight: 600;
       position: relative;
@@ -509,40 +514,31 @@
       border-radius: 4px;
     }
 
-    .author-link:hover {
-      color: #764ba2;
-      background: rgba(102, 126, 234, 0.1);
+    .link-green:hover {
+      color: #999;
+      background: rgba(153, 153, 153, 0.1);
       transform: translateY(-1px);
     }
 
-    .author-link::after {
+    .link-green::after {
       content: '';
       position: absolute;
       width: 0;
       height: 2px;
       bottom: 0;
       left: 50%;
-      background: linear-gradient(90deg, #667eea, #764ba2);
+      background: #999;
       transition: all 0.3s ease;
       transform: translateX(-50%);
     }
 
-    .author-link:hover::after {
+    .link-green:hover::after {
       width: 100%;
     }
 
-    .author-link:focus {
-      outline: 2px solid rgba(102, 126, 234, 0.3);
+    .link-green:focus {
+      outline: 2px solid rgba(153, 153, 153, 0.3);
       outline-offset: 2px;
-    }
-
-    /* 页脚作者链接颜色与周围文字一致 */
-    .footer .author-link {
-      color: inherit;
-    }
-    .footer .author-link:hover,
-    .footer .author-link:focus {
-      color: inherit;
     }
 
     .help-text {
@@ -704,7 +700,7 @@
     </div>
 
     <div class="footer">
-      <p>© 2025 <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="author-link">EPUB.GW124.TOP</a></p>
+      <div class="footer-line">© 2025 <a href="https://epub.gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">EPUB.GW124.TOP</a>｜By <a href="https://gw124.top/" target="_blank" rel="noopener noreferrer" class="link-green">Wen</a></div>
     </div>
   </div>
 
